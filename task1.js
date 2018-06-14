@@ -1,6 +1,7 @@
 function testBrakets(strBrakets) {
     if (!sumOpenCloseBrakets(strBrakets)) return 0;
     let openBrakets = ['(', '{', '['];
+    let closeBrakets = [')', '}', ']'];
     let braketsA = ['(', ')'];
     let braketsB = ['{', '}'];
     let braketsC = ['[', ']'];
@@ -10,13 +11,15 @@ function testBrakets(strBrakets) {
         if (contains(openBrakets, strBrakets[i])) {
             testBrakets.push(strBrakets[i]);
         } else {
-            let lastElem = testBrakets.length-1;
-            if ( (contains(braketsA, testBrakets[lastElem]) && contains(braketsA, strBrakets[i])) ||
-                 (contains(braketsB, testBrakets[lastElem]) && contains(braketsB, strBrakets[i])) ||
-                 (contains(braketsC, testBrakets[lastElem]) && contains(braketsC, strBrakets[i])) )
-            {
-                testBrakets.pop();
-            } else return 0;
+            if (contains(closeBrakets, strBrakets[i])) {
+                let lastElem = testBrakets.length-1;
+                if ( (contains(braketsA, testBrakets[lastElem]) && contains(braketsA, strBrakets[i])) ||
+                    (contains(braketsB, testBrakets[lastElem]) && contains(braketsB, strBrakets[i])) ||
+                    (contains(braketsC, testBrakets[lastElem]) && contains(braketsC, strBrakets[i])) )
+                {
+                    testBrakets.pop();
+                } else return 0;
+            }
         }
     }
     if (testBrakets.length === 0) return 1; else return 0;
@@ -49,7 +52,7 @@ function sumOpenCloseBrakets(strBrakets) {
 
 
 
-let str = ['(', '))', '[}', '{}', '(){}[]', '({[]}{})', '[({}())[]'];
+let str = ['(qqqq', '))', '[q}', '{qqq}', '(q){qqq}[q]', '({q[qqqqq]}{})', '[({qqqqq}())[]'];
 for (let i = 0; i < str.length; i++) {
     if (testBrakets(str[i])) {
         console.log('YES');
