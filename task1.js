@@ -52,7 +52,7 @@ function sumOpenCloseBrakets(strBrakets) {
 
 
 
-let str = ['(qqqq', '))', '[q}', '{qqq}', '(q){qqq}[q]', '({q[qqqqq]}{})', '[({qqqqq}())[]'];
+let str = ['(qqqq', '))', '[q}', '{qqq}', '(q){qqq}[q]', '({q[qqqqq]}{})', '[({qqqqq}())[uhiuhiuhui]kjkjkjkjjk'];
 for (let i = 0; i < str.length; i++) {
     if (testBrakets(str[i])) {
         console.log('YES');
