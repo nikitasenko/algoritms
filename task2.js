@@ -1,7 +1,8 @@
 class LinkedList {
+   listSize = 0;
 
     size(){
-
+        return this.listSize;
     }
 
     add(elem) {
