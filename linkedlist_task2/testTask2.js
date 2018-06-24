@@ -1,6 +1,6 @@
 const chai = require('chai');
 const assert = chai.assert;
-const LinkedList = require('./task2');
+const LinkedList = require('./LinkedList');
 
 describe('LinkelList tests', function () {
     let list;
@@ -20,12 +20,12 @@ describe('LinkelList tests', function () {
 
     it('get elem', () => {
         let number = list.get(2);
-        assert.equal(99, number);
+        assert.equal(5, number.value);
     });
 
     it('get elem', () => {
         let number = list.get(1);
-        assert.equal(5, number);
+        assert.equal(99, number.value);
     });
 
     it('remove elem', () => {
@@ -35,6 +35,10 @@ describe('LinkelList tests', function () {
 
     it('get elem', () => {
         let number = list.get(1);
-        assert.equal(99, number);
+        assert.equal(5, number.value);
+    });
+
+    it('insert elem', () => {
+        assert.equal(99, 3232);
     });
 });
