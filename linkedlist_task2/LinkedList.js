@@ -13,20 +13,35 @@ class LinkedList {
     }
 
     add(elem) {
-        if (elem) {
-            let element = new Element(elem);
-            if (this.head) {
-                element.next = this.head;
-            }
-            this.head = element;
-            this.listSize++;
-        } else {
-            return false;
+        if (!elem) return false;
+        let element = new Element(elem);
+        if (this.head) {
+            element.next = this.head;
         }
+        this.head = element;
+        this.listSize++;
     }
 
     insert(position, value) {
-
+        if (!value) return false;
+        if(position <= 0) return false;
+        if(position>this.listSize) position = this.listSize;
+        if(position === 1 || position === 0) {
+            this.add(value);
+            return true;
+        }
+        let elem = new Element(value);
+        let curr = this.head;
+        let i = position - 2;
+        while(i>0) {
+            curr = curr.next;
+            i--;
+        }
+        let next = curr.next;
+        curr.next = elem;
+        elem.next = next;
+        this.listSize++;
+        return true;
     }
 
     remove(position) {
@@ -43,7 +58,7 @@ class LinkedList {
             } else {
                 let i = position - 2;
                 while (i>0) {
-                    i++;
+                    i--;
                     curr = curr.next;
                 }
                 let next = curr.next;
@@ -65,6 +80,7 @@ class LinkedList {
                 let i = position - 1;
                 while (i > 0) {
                     curr = curr.next;
+                    i--;
                 }
                 return curr;
             }
