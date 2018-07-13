@@ -2,10 +2,10 @@ class BinaryTree{
 
     constructor(){}
 
-    add(elem){}
+    add(key, value){}
 
-    delete(elem){}
+    delete(key){}
 
-    search(elem){}
+    search(key){}
 }
 module.exports = BinaryTree;
