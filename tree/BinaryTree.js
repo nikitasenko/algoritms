@@ -2,7 +2,7 @@ class BinaryTree{
 
     constructor(){}
 
-    add(key, value){}
+    add(value){}
 
     delete(key){}
 
