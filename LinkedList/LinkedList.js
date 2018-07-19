@@ -1,5 +1,4 @@
 const Element = require('./Element');
-
 class LinkedList {
 
 
